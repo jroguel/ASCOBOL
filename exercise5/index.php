@@ -18,6 +18,7 @@ if(isset($_GET['delete_id']))
 <title>CRUD Operations With PHP and MySql - By Cleartuts</title>
 <link rel="stylesheet" href="style.css" type="text/css" />
 <script type="text/javascript">
+
 function edt_id(id)
 {
  if(confirm('Sure to edit ?'))
@@ -56,14 +57,14 @@ function delete_id(id)
     </tr>
     <?php
  $sql_query="SELECT * FROM users";
- $result_set=mysql_query($sql_query);
- while($row=mysql_fetch_row($result_set))
+ $result_set=mysqli_query($con,$sql_query);
+ while($row=mysqli_fetch_row($result_set))
  {
   ?>
         <tr>
+        <td><?php echo $row[0]; ?></td>
         <td><?php echo $row[1]; ?></td>
         <td><?php echo $row[2]; ?></td>
-        <td><?php echo $row[3]; ?></td>
   <td align="center"><a href="javascript:edt_id('<?php echo $row[0]; ?>')"><img src="b_edit.png" align="EDIT" /></a></td>
         <td align="center"><a href="javascript:delete_id('<?php echo $row[0]; ?>')"><img src="b_drop.png" align="DELETE" /></a></td>
         </tr>
