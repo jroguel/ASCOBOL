@@ -115,4 +115,29 @@
            END-PERFORM
            CLOSE GraduateInfoFile.
 
+       MakeEmailDomainFile.
+           PERFORM LoadCountryTable.
+           OPEN OUTPUT SortedDomainFile
+           RETURN WorkFile
+               AT END SET EndOfWorkFile TO TRUE
+           END-RETURN
+           PERFORM UNTIL EndOfWorkFile
+               MOVE StudentNameWF TO StudentNameSF
+               MOVE GradYearWF    TO GradYearSF
+               MOVE CourseName(CourseCodeWF) TO CourseNameSF
+               MOVE EmailDomainWF TO EmailDomainSF
+               SET Cidx TO 1
+               SEARCH Country
+                   AT END MOVE "Code not found" TO CountryNameSF
+                   WHEN CountryCode(Cidx) = CountryCodeWF
+                       MOVE CountryName(Cidx) TO CountryNameSF
+               END-SEARCH
+           WRITE GradInfoRecSF
+               RETURN WorkFile
+                   AT END SET EndOfWorkFile TO TRUE
+               END-RETURN
+           END-PERFORM
+       CLOSE SortedDomainFile.
+
+
        END PROGRAM CSISEmailDomain.
