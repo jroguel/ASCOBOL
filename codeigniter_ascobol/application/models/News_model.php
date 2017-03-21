@@ -6,15 +6,15 @@ class News_model extends CI_Model {
         $this->load->database();
     }
     
-    public function get_news($slug = FALSE)
+    public function get_news($id = FALSE)
     {
-        if ($slug === FALSE)
+        if ($id === FALSE)
         {
             $query = $this->db->get('news');
             return $query->result_array();
         }
  
-        $query = $this->db->get_where('news', array('slug' => $slug));
+        $query = $this->db->get_where('news', array('id' => $id));
         return $query->row_array();
     }
     
@@ -34,12 +34,16 @@ class News_model extends CI_Model {
     {
         $this->load->helper('url');
  
-        $slug = url_title($this->input->post('title'), 'dash', TRUE);
+        $slug = url_title($this->input->post('name'), 'dash', TRUE);
  
         $data = array(
-            'title' => $this->input->post('title'),
-            'slug' => $slug,
-            'text' => $this->input->post('text')
+            'name' => $this->input->post('name'),
+            'nickname' => $this->input->post('nickname'),
+            'email' => $this->input->post('email'),
+            'home_add' => $this->input->post('home_add'),
+            'gender' => $this->input->post('gender'),
+            'cpnum' => $this->input->post('cpnum'),
+            'comments' => $this->input->post('comments'),
         );
         
         if ($id == 0) {
