@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <td><label for="cpnum">Cellphone Number</label></td>
-            <td><input type="number" name="cpnum" size="50" /></td>
+            <td><input type="input" name="cpnum" size="50" /></td>
         </tr>
         <tr>
             <td><label for="comments">Comments</label></td>
