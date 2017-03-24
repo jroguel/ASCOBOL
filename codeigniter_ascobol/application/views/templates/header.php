@@ -1,6 +1,7 @@
 <html>
         <head>
                 <title>CodeIgniter YAY</title>
+                <link href="<?php echo base_url ("css/style.css"); ?>" rel="stylesheet">
         </head>
         <body>
  

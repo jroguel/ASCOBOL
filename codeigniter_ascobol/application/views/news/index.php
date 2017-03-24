@@ -1,16 +1,20 @@
-<h2><?php echo $title; ?></h2>
- 
-<table border='1' cellpadding='4'>
+<div class="table-title">
+<h3><?php echo $title; ?></h3>
+</div>
+
+<table border='1' cellpadding='4' class="table-fill">
+<thread>
     <tr>
-        <td><strong>Full Name</strong></td>
-        <td><strong>Nickname</strong></td>
-        <td><strong>Email</strong></td>
-        <td><strong>Home Address</strong></td>
-        <td><strong>Gender</strong></td>
-        <td><strong>Cellphone Number</strong></td>
-        <td><strong>Comments</strong></td>
-        <td><strong>Actions</strong></td>
-    </tr>
+        <th>Full Name</th>
+        <th>Nickname</th>
+        <th>Email</th>
+        <th>Home Address</th>
+        <th>Gender</th>
+        <th>Cellphone Number</th>
+        <th>Comments</th>
+        <th>Actions</th>
+</thread>
+<tbody class="table-hover">
 <?php foreach ($news as $news_item): ?>
         <tr>
             <td><?php echo $news_item['name']; ?></td>
@@ -27,4 +31,5 @@
             </td>
         </tr>
 <?php endforeach; ?>
+</tbody>
 </table>
