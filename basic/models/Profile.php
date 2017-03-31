@@ -34,9 +34,10 @@ class Profile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'nickname', 'email', 'home_add', 'gender', 'cpnum', 'comments'], 'required'],
+            [['name', 'nickname', 'email', 'gender', 'cpnum'], 'required'],
             [['nickname', 'home_add', 'gender', 'comments'], 'string'],
             [['cpnum'], 'integer'],
+            ['email', 'email'],
             [['name', 'email'], 'string', 'max' => 128],
         ];
     }
