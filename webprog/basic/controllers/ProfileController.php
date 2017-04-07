@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Profile;
+use app\models\Trivia;
 use app\models\ProfileSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -51,8 +52,11 @@ class ProfileController extends Controller
      */
     public function actionView($id)
     {
+        $profile = Profile::findOne($id);
+        $trivia = Trivia::findOne($profile->id);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $profile,
+            'trivia' => $trivia,
         ]);
     }
 

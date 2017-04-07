@@ -39,4 +39,12 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <?= DetailView::widget([
+        'trivia' => $trivia,
+        'attributes' => [
+            'question',
+            'answer',
+        ],
+    ]) ?>
+
 </div>
